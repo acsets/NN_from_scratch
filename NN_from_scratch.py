@@ -75,10 +75,10 @@ def train():
     
     loss_list = []
     for i in range(epoch):
-        if i == 0: #first epoch use initialized random parameter
+        if i == 0: #first epoch use initialized random parameters
             w1_1, w1_2, w1_3, w1_4, w1_5, w1_6, w2_1, w2_2, b1_1, b1_2, b2_1, y, loss, y_hat, a1_1, a1_2 = forward(x1, x2, x3, w1_1, w1_2, w1_3, w1_4, w1_5, w1_6, w2_1, w2_2, b1_1, b1_2, b2_1, y)
             new_b2_1, new_w2_1, new_w2_2, new_b1_1, new_b1_2, new_w1_1, new_w1_2, new_w1_3, new_w1_4, new_w1_5, new_w1_6 = backward(alpha, x1, x2, x3, w1_1, w1_2, w1_3, w1_4, w1_5, w1_6, w2_1, w2_2, b1_1, b1_2, b2_1, y, y_hat, a1_1, a1_2)
-        else: #afterwards, use new parameter modified by back propagation
+        else: #afterwards, use new parameters modified by back propagation
             w1_1, w1_2, w1_3, w1_4, w1_5, w1_6, w2_1, w2_2, b1_1, b1_2, b2_1, y, loss, y_hat, a1_1, a1_2 = forward(x1, x2, x3, new_w1_1, new_w1_2, new_w1_3, new_w1_4, new_w1_5, new_w1_6, new_w2_1, new_w2_2, new_b1_1, new_b1_2, new_b2_1, y)
             new_b2_1, new_w2_1, new_w2_2, new_b1_1, new_b1_2, new_w1_1, new_w1_2, new_w1_3, new_w1_4, new_w1_5, new_w1_6 = backward(alpha, x1, x2, x3, w1_1, w1_2, w1_3, w1_4, w1_5, w1_6, w2_1, w2_2, b1_1, b1_2, b2_1, y, y_hat, a1_1, a1_2)
             
